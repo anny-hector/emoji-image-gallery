@@ -1,0 +1,44 @@
+html {
+    font-family: 'Noto Serif', serif;
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    font-family: 'Noto Serif', serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Varela Round', sans-serif;
+}
+
+.wrapper {
+    max-width: 1920px;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+
+h1 {
+    text-align: center;
+}
+
+.gallery {
+    width: 90%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-column: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+
+.gallery-img {
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+}
