@@ -9,28 +9,35 @@ body {
 
 h1, h2, h3 {
     font-family: 'Varela Round', sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #FFF;
+    margin: 0;
 }
 
 .wrapper {
     max-width: 1920px;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
-    border: 1px solid red;
+    // border: 1px solid red;
 }
 
 .wrapper > h2 {
     margin: 2% 0 0 0;
 }
 
-h1, h2 {
-    text-align: center;
+header {
+    background-color: #232323;
+    height: 50vh;
 }
 
 .emoji-picker {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 2%;
+    margin: 2% auto;
 }
 
 .emoji-image {
@@ -44,8 +51,7 @@ h1, h2 {
 }
 
 .gallery {
-    width: 90%;
-    padding: 20px;
+    width: 100%;
     margin: 5% auto;
 }
 
@@ -62,5 +68,11 @@ h1, h2 {
 }
 
 footer {
+    background-color: #232323;
     text-align: center;
+    padding: 10px 0;
+
+    p {
+        color: #FFF;
+    }
 }
