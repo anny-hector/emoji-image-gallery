@@ -109,21 +109,36 @@ imageApp.emojiArray = [
     }
 ]
 
+// passing the array emojiArray to emArray
 imageApp.displayEmoji = function (emArray) {
     emArray.forEach(function (emoji) {
-        const emojiImage = $("<img>").addClass("emoji-image").attr("src", emoji.img).attr("alt", emoji.alt).attr("val", emoji.id);
+        const emojiImage = $("<img>")
+            .addClass("emoji-image")
+            .attr("src", emoji.img)
+            .attr("alt", emoji.alt)
+            .attr("value", emoji.id);
 
         $(".emoji-picker").append(emojiImage);
-
-        console.log('hello');
     });
 };
 
+imageApp.defaultEmoji = "happy";
 
 // user selects an emoji, and function grabs images of the id of the emoji
-// imageApp.pickEmoji = function () {
-    
-// }
+imageApp.chooseEmoji = function () {
+    $(".emoji-image").on("click", function () {
+        
+        // clear the grid container before getting images
+        $(".gallery-grid").empty();
+
+        // assign the value to the global emoji variable
+        imageApp.defaultEmoji = $(this).attr('value');
+        // imageApp.defaultEmoji = $(this).val();
+
+        // call function to get images from api
+        imageApp.getImage();
+    });
+};
 
 // function to get images from api
 imageApp.getImage = function () {
@@ -135,8 +150,8 @@ imageApp.getImage = function () {
       client_id: imageApp.key,
       format: "json",
       count: "16",
-      query: "travel", // will request a search term
-      orientation: 'landscape'
+      query: `${imageApp.defaultEmoji}`, // will request a search term
+      orientation: "landscape"
     },
     // response is returning the function above AFTER ajax has completed
   }).then(function (response) {
@@ -149,9 +164,16 @@ imageApp.getImage = function () {
 imageApp.displayImage = function (imageArray) {
   imageArray.forEach(function (image) {
 
-    const photo = $("<img>").addClass("gallery-img").attr("src", image.urls.regular).attr("alt", image.alt_description);
-    const photography = $("<p>").addClass("photographer").text(image.user.name);
-    const imagePiece = $("<div>").addClass("piece").append(photo, photography);
+    const photo = $("<img>")
+        .addClass("gallery-img")
+        .attr("src", image.urls.regular)
+        .attr("alt", image.alt_description);
+    const photography = $("<p>")
+        .addClass("photographer")
+        .text(image.user.name);
+    const imagePiece = $("<div>")
+        .addClass("piece")
+        .append(photo, photography);
 
     $(".gallery-grid").append(imagePiece);
   });
@@ -161,6 +183,7 @@ imageApp.displayImage = function (imageArray) {
 imageApp.init = function () {
   imageApp.getImage();
   imageApp.displayEmoji(imageApp.emojiArray);
+  imageApp.chooseEmoji();
 };
 
 
