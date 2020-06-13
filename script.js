@@ -171,7 +171,10 @@ imageApp.getImage = function () {
     // response is returning the function above AFTER ajax has completed
   }).then(function (response) {
     imageApp.displayImage(response);
-
+    // if api fails, show an error
+  }).fail(function (error) {
+    alert('You have reached your request limit for the hour! Try again later.');
+    console.log(error);
   });
 };
 
