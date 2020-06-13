@@ -10,8 +10,21 @@
   <body>
     <!-- Start of header -->
     <header>
+      <!-- Start of background -->
+      <div class="bg"></div>
+      <div class="bg bg2"></div>
+      <div class="bg bg3"></div>
+      <!-- Start of light/dark theme slider -->
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+      <!-- Start of header title -->
       <div class="wrapper">
-        <h1>emoji mood gallery</h1>
+        <div class="introduction">
+          <h1>emoji mood gallery</h1>
+            <p>Are you feeling happy? Festive? Want to see nature? Click on an emoji! Each emoji will load images accordingly. You can change the orientation, and hover over the image to view details or to grab the download link!</p>
+        </div>
       </div>
     </header>
     <!-- End of header -->
@@ -24,6 +37,16 @@
             <div class="emoji-picker">
             <!-- Emojis load here -->
             </div>
+      </section>
+
+      <!-- Orientation section starts here -->
+      <section class="wrapper">
+        <h3>Choose an orientation</h3>
+          <div class="orientation-picker">
+              <button class="orientation" value="squarish">Square</button>
+              <button class="orientation" value="portrait">Portrait</button>
+              <button class="orientation" value="landscape">Landscape</button>
+          </div>
       </section>
 
       <!-- Gallery section starts here -->
