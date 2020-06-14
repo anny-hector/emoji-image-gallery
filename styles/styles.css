@@ -452,7 +452,7 @@ input:checked + .slider:before {
 }
 
 .orientation-picker button:hover, .orientation-picker button:focus {
-  border: v1px #000;
+  border: 1px #000;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
@@ -486,8 +486,8 @@ input:checked + .slider:before {
 }
 
 .overlay {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000;
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -495,8 +495,9 @@ input:checked + .slider:before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -506,10 +507,26 @@ input:checked + .slider:before {
   top: 0;
   left: 0;
   opacity: 0;
+  text-align: center;
+  padding: 0 10px;
 }
 
 .overlay:hover {
   opacity: 0.7;
+}
+
+.download {
+  color: #000;
+  text-decoration: none;
+  background: #FFF;
+  padding: 5px 10px;
+  margin: 10px 0 0 0;
+}
+
+.download:hover, .download:focus {
+  border: 5px #000;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 /* Footer styles */

@@ -199,16 +199,12 @@ imageApp.getImage = function () {
       query: `${imageApp.defaultEmoji}`, // will request a search term
       orientation: `${imageApp.defaultOrientation}`,
     },
-    // response is returning the function above AFTER ajax has completed
-  })
+  }) // response is returning the function above AFTER ajax has completed
     .then(function (response) {
       imageApp.displayImage(response);
-      // if api fails, show an error
-    })
+    }) // if api fails, show an error
     .fail(function (error) {
-      alert(
-        "You have reached your request limit for the hour! Try again later :)"
-      );
+      alert("You have reached your request limit for the hour! Try again later :)");
       console.log(error);
     });
 };
@@ -216,20 +212,25 @@ imageApp.getImage = function () {
 // passing in from the "response.photos" to imageArray
 imageApp.displayImage = function (imageArray) {
   imageArray.forEach(function (image) {
+
     const photo = $("<img>")
-      .addClass("gallery-img")
-      .attr("src", image.urls.regular)
-      .attr("alt", image.alt_description);
+        .addClass("gallery-img")
+        .attr("src", image.urls.regular)
+        .attr("alt", image.alt_description);
 
-    //overlay on top of image displaying info
+      
+    const downloadPhoto = $(`<a href="${image.urls.full}" target="_blank"></a>`)
+        .addClass("download")
+        .text("Download");
+
+    const photographer = $("<p>")
+      .text(`Photographer: ${image.user.name}`)
+      
+    //overlay on top of image displaying info & download
     const overlay = $("<div>")
-      .addClass("overlay")
-      .text(`Photographer: ${image.user.name}`);
-
-    const photography = $(`<a href="${image.urls.full}" target="_blank"></a>`)
-      .addClass("photographer")
-      .text("Download");
-
+        .addClass("overlay")
+        .append(photographer, downloadPhoto);
+    
     const imagePiece = $("<div>").addClass("piece").append(photo, overlay);
 
     $(".gallery-grid").append(imagePiece);
