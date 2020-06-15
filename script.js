@@ -143,6 +143,32 @@ imageApp.emojiArray = [
   // },
 ];
 
+//vanilla js
+// concept referenced from https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8
+
+const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme) {
+  document.documentElement.setAttribute("data-theme", currentTheme);
+
+  if (currentTheme === "dark") {
+    toggleSwitch.checked = true;
+  }
+}
+
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+  }
+}
+
+toggleSwitch.addEventListener("change", switchTheme, false);
+
 // passing the array emojiArray to emArray
 imageApp.displayEmoji = function (emArray) {
   emArray.forEach(function (emoji) {
@@ -204,7 +230,9 @@ imageApp.getImage = function () {
       imageApp.displayImage(response);
     }) // if api fails, show an error
     .fail(function (error) {
-      alert("You have reached your request limit for the hour! Try again later :)");
+      alert(
+        "You have reached your request limit for the hour! Try again later :)"
+      );
       console.log(error);
     });
 };
@@ -212,25 +240,22 @@ imageApp.getImage = function () {
 // passing in from the "response.photos" to imageArray
 imageApp.displayImage = function (imageArray) {
   imageArray.forEach(function (image) {
-
     const photo = $("<img>")
-        .addClass("gallery-img")
-        .attr("src", image.urls.regular)
-        .attr("alt", image.alt_description);
+      .addClass("gallery-img")
+      .attr("src", image.urls.regular)
+      .attr("alt", image.alt_description);
 
-      
     const downloadPhoto = $(`<a href="${image.urls.full}" target="_blank"></a>`)
-        .addClass("download")
-        .text("View Full Image");
+      .addClass("download")
+      .text("View Full Image");
 
-    const photographer = $("<p>")
-      .text(`Photographer: ${image.user.name}`)
-      
+    const photographer = $("<p>").text(`Photographer: ${image.user.name}`);
+
     //overlay on top of image displaying info & download
     const overlay = $("<div>")
-        .addClass("overlay")
-        .append(photographer, downloadPhoto);
-    
+      .addClass("overlay")
+      .append(photographer, downloadPhoto);
+
     const imagePiece = $("<div>").addClass("piece").append(photo, overlay);
 
     $(".gallery-grid").append(imagePiece);

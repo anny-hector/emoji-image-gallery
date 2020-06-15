@@ -236,14 +236,30 @@ html {
   overflow: hidden;
 }
 
+:root {
+  --bg-color: #fcfaeb;
+  --font-color: #383435;
+  --heading-color: #383435;
+  --subheading-color: #3e3e3e;
+  --bg-img: url("../assets/header1.png");
+}
+
+[data-theme="dark"] {
+  --bg-color: #282828;
+  --font-color: #ffffff;
+  --heading-color: yellow;
+  --subheading-color: #ffffff;
+  --bg-img: url("../assets/header2.png");
+}
+
 html {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-family: "Varela Round", sans-serif;
 }
 
 body {
-  background-color: #FCFAEB;
-  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-color);
+  font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
 }
 
@@ -256,7 +272,7 @@ h3 {
 }
 
 h1 {
-  color: #383435;
+  color: var(--heading-color);
   font-size: 3.5rem;
   margin: 0;
 }
@@ -269,8 +285,9 @@ h1 {
   -webkit-text-stroke-color: #383435;
 }
 
-h2, h3 {
-  color: #3E3E3E;
+h2,
+h3 {
+  color: var(--subheading-color);
   font-size: 1.6rem;
   letter-spacing: 6px;
 }
@@ -282,7 +299,7 @@ h2, h3 {
 }
 
 header {
-  background: url(../assets/header1.png);
+  background: var(--bg-img);
   background-size: cover;
   height: 680px;
 }
@@ -307,8 +324,8 @@ header {
 }
 
 .introduction p {
-  font-size: 1.0rem;
-  color: #383435;
+  font-size: 1rem;
+  color: var(--font-color);
   margin: 3% auto 0 auto;
   width: 60%;
 }
@@ -325,7 +342,11 @@ header {
 }
 
 @-webkit-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
@@ -340,7 +361,11 @@ header {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
@@ -458,9 +483,9 @@ input:checked + .slider:before {
 
 .orientation-picker button {
   background: none;
-  color: #3E3E3E;
-  font-size: 1.0rem;
-  font-family: 'Montserrat', sans-serif;
+  color: var(--font-color);
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
   text-transform: lowercase;
   width: 130px;
   padding: 5px 15px;
@@ -540,7 +565,7 @@ input:checked + .slider:before {
 .download {
   color: #000;
   text-decoration: none;
-  background: #FFF;
+  background: #fff;
   padding: 5px 10px;
   margin: 10px 0 0 0;
   border-radius: 5px;
@@ -555,14 +580,14 @@ input:checked + .slider:before {
 
 /* Footer styles */
 footer {
-  background-color: #a6ffe9;
+  background-color: var(--bg-color);
   text-align: center;
   padding: 15px 0;
 }
 
 footer p {
-  color: #383435;
-  font-size: 1.0rem;
+  color: var(--font-color);
+  font-size: 1rem;
 }
 
 @media (max-width: 1320px) {
