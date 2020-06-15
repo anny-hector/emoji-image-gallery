@@ -106,41 +106,41 @@ imageApp.emojiArray = [
     alt: "Eggplant emoji",
     id: "eggplants",
   },
-  {
-    img: "assets/emoji-fish.png",
-    alt: "Blowfish emoji",
-    id: "fish",
-  },
-  {
-    img: "assets/emoji-island.png",
-    alt: "Island emoji",
-    id: "tropical",
-  },
-  {
-    img: "assets/emoji-building.png",
-    alt: "Building emoji",
-    id: "architecture",
-  },
-  {
-    img: "assets/emoji-pride.png",
-    alt: "Pride flag emoji",
-    id: "Pride",
-  },
-  {
-    img: "assets/emoji-red.png",
-    alt: "Red Apple emoji",
-    id: "red",
-  },
-  {
-    img: "assets/emoji-green.png",
-    alt: "Green Apple emoji",
-    id: "green",
-  },
-  {
-    img: "assets/emoji-yellow.png",
-    alt: "Banana emoji",
-    id: "yellow",
-  },
+  // {
+  //   img: "assets/emoji-fish.png",
+  //   alt: "Blowfish emoji",
+  //   id: "fish",
+  // },
+  // {
+  //   img: "assets/emoji-island.png",
+  //   alt: "Island emoji",
+  //   id: "tropical",
+  // },
+  // {
+  //   img: "assets/emoji-building.png",
+  //   alt: "Building emoji",
+  //   id: "architecture",
+  // },
+  // {
+  //   img: "assets/emoji-pride.png",
+  //   alt: "Pride flag emoji",
+  //   id: "Pride",
+  // },
+  // {
+  //   img: "assets/emoji-red.png",
+  //   alt: "Red Apple emoji",
+  //   id: "red",
+  // },
+  // {
+  //   img: "assets/emoji-green.png",
+  //   alt: "Green Apple emoji",
+  //   id: "green",
+  // },
+  // {
+  //   img: "assets/emoji-yellow.png",
+  //   alt: "Banana emoji",
+  //   id: "yellow",
+  // },
 ];
 
 // passing the array emojiArray to emArray
@@ -221,7 +221,7 @@ imageApp.displayImage = function (imageArray) {
       
     const downloadPhoto = $(`<a href="${image.urls.full}" target="_blank"></a>`)
         .addClass("download")
-        .text("Download");
+        .text("View Full Image");
 
     const photographer = $("<p>")
       .text(`Photographer: ${image.user.name}`)
