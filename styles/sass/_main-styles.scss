@@ -1,12 +1,28 @@
+:root {
+  --bg-color: #fcfaeb;
+  --font-color: #383435;
+  --heading-color: #383435;
+  --subheading-color: #3e3e3e;
+  --bg-img: url("../assets/header1.png");
+}
+
+[data-theme="dark"] {
+  --bg-color: #282828;
+  --font-color: #ffffff;
+  --heading-color: yellow;
+  --subheading-color: #ffffff;
+  --bg-img: url("../assets/header2.png");
+}
+
 html {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-family: "Varela Round", sans-serif;
 }
 
 body {
   // background-color: #f6f6f6;
-  background-color: #FCFAEB;
-  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-color);
+  font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
 }
 
@@ -19,21 +35,22 @@ h3 {
 }
 
 h1 {
-  color: #383435;
+  color: var(--heading-color);
   font-size: 3.5rem;
   margin: 0;
 }
 
 .text-effect {
-    letter-spacing: 6px;
-    text-shadow: 6px 6px #f2cee6;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #383435;
+  letter-spacing: 6px;
+  text-shadow: 6px 6px #f2cee6;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #383435;
 }
 
-h2, h3 {
-  color: #3E3E3E;
+h2,
+h3 {
+  color: var(--subheading-color);
   font-size: 1.6rem;
   letter-spacing: 6px;
 }
@@ -45,7 +62,7 @@ h2, h3 {
 }
 
 header {
-  background: url(../assets/header1.png);
+  background: var(--bg-img);
   background-size: cover;
   height: 680px;
 }
@@ -65,8 +82,8 @@ header {
   text-align: center;
 
   p {
-    font-size: 1.0rem;
-    color: #383435;
+    font-size: 1rem;
+    color: var(--font-color);
     margin: 3% auto 0 auto;
     width: 60%;
   }
@@ -80,9 +97,19 @@ header {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-  40% {transform: translateY(-30px);}
-  60% {transform: translateY(-15px);}
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
 }
 
 /* Slider styles */
@@ -180,9 +207,9 @@ input:checked + .slider:before {
 
   button {
     background: none;
-    color: #3E3E3E;
-    font-size: 1.0rem;
-    font-family: 'Montserrat', sans-serif;
+    color: var(--font-color);
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
     text-transform: lowercase;
     width: 130px;
     padding: 5px 15px;
@@ -191,7 +218,7 @@ input:checked + .slider:before {
     border-radius: 10px;
     border: 1px solid #383435;
 
-    &:hover{
+    &:hover {
       background-color: #f2cee6;
       transition: 0.5s ease-in-out;
     }
@@ -227,50 +254,52 @@ input:checked + .slider:before {
 }
 
 .overlay {
-    background-color: #000;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    text-align: center;
-    padding: 0 10px;
-    border-radius: 3%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  text-align: center;
+  padding: 0 10px;
+  border-radius: 3%;
 
-    &:hover, &:focus {
-        opacity: 0.7;
-    }
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
 }
 
 .download {
-    color: #000;
-    text-decoration: none;
-    background: #FFF;
-    padding: 5px 10px;
-    margin: 10px 0 0 0;
-    border-radius: 5px;
+  color: #000;
+  text-decoration: none;
+  background: #fff;
+  padding: 5px 10px;
+  margin: 10px 0 0 0;
+  border-radius: 5px;
 
-    &:hover, &:focus {
-      box-shadow: 0px 1px 0px #000;
-      transition: 0.3s ease-in-out;
-    }
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 0px #000;
+    transition: 0.3s ease-in-out;
+  }
 }
 
 /* Footer styles */
 
 footer {
-  background-color: #a6ffe9;
+  background-color: var(--bg-color);
   text-align: center;
   padding: 15px 0;
 
   p {
-    color: #383435;
-    font-size: 1.0rem;
+    color: var(--font-color);
+    font-size: 1rem;
   }
 }
