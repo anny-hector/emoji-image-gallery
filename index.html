@@ -3,17 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Varela+Round&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Varela+Round&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./styles/styles.css" />
-    <title>Document</title>
+    <title>Emoji Image Gallery &#11088;</title>
   </head>
   <body>
     <!-- Start of header -->
     <header>
-      <!-- Start of background -->
-      <div class="bg"></div>
-      <div class="bg bg2"></div>
-      <div class="bg bg3"></div>
       <!-- Start of light/dark theme slider -->
       <label class="switch">
         <input type="checkbox" checked>
@@ -22,8 +18,9 @@
       <!-- Start of header title -->
       <div class="wrapper">
         <div class="introduction">
-          <h1>emoji mood gallery</h1>
+          <h1 class="text-effect bounce-animation">Emoji Image Gallery</h1>
             <p>Are you feeling happy? Festive? Want to see nature? Click on an emoji! Each emoji will load images accordingly. You can change the orientation, and hover over the image to view details or to grab the download link!</p>
+            <p>&#11088; &#11088; &#11088;</p>
         </div>
       </div>
     </header>
@@ -33,25 +30,29 @@
     <main>
       <!-- Emoji section starts here -->
       <section class="wrapper">
-        <h2>what emoji are you today?</h2>
-            <div class="emoji-picker">
-            <!-- Emojis load here -->
-            </div>
+        <div class="emoji-container">
+          <h2>Choose an emoji</h2>
+              <div class="emoji-picker">
+              <!-- Emojis load here -->
+              </div>
+        </div>
       </section>
 
       <!-- Orientation section starts here -->
       <section class="wrapper">
-        <h3>Choose an orientation</h3>
-          <div class="orientation-picker">
-              <button class="orientation" value="squarish">Square</button>
-              <button class="orientation" value="portrait">Portrait</button>
-              <button class="orientation" value="landscape">Landscape</button>
-          </div>
+        <div class="orientation-container">
+          <h3>Choose an orientation</h3>
+            <div class="orientation-picker">
+                <button class="orientation" value="squarish">Square</button>
+                <button class="orientation" value="portrait">Portrait</button>
+                <button class="orientation" value="landscape">Landscape</button>
+            </div>
+        </div>
       </section>
 
       <!-- Gallery section starts here -->
       <section class="wrapper">
-        <div class="gallery">
+        <div class="gallery-container">
           <div class="gallery-grid">
             <!-- Images load here -->
           </div>

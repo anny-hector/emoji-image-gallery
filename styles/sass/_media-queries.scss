@@ -1,4 +1,26 @@
+@media (max-width: 1320px) {
+    .introduction {
+        top: 150px;
+    }
+}
+
+@media (max-width: 715px) {
+    .orientation-picker {
+        flex-direction: column;
+        align-items: center;
+
+        button {
+            margin: 5px auto;
+        }
+    }
+}
+
+
 @media (max-width: 525px) {
+    .introduction {
+        top: 100px;
+    }
+
     .orientation-picker {
         flex-direction: column;
         align-items: center;
@@ -14,5 +36,13 @@
 }
 
 @media (max-width: 460px) {
+    .introduction {
+        top: 60px;
+
+        p {
+            width: 70%;
+        }
+    }
+
 
 }
