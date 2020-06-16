@@ -62,6 +62,11 @@ imageApp.emojiArray = [
     id: "animals",
   },
   {
+    img: "assets/emoji-fish.png",
+    alt: "Blowfish emoji",
+    id: "fish",
+  },
+  {
     img: "assets/emoji-bugs.png",
     alt: "Ladybug emoji",
     id: "bugs",
@@ -87,6 +92,11 @@ imageApp.emojiArray = [
     id: "sports",
   },
   {
+    img: "assets/emoji-island.png",
+    alt: "Island emoji",
+    id: "tropical",
+  },
+  {
     img: "assets/emoji-nature.png",
     alt: "Maple leaf emoji",
     id: "nature",
@@ -102,72 +112,44 @@ imageApp.emojiArray = [
     id: "music",
   },
   {
+    img: "assets/emoji-pride.png",
+    alt: "Pride flag emoji",
+    id: "Pride",
+  },
+  {
     img: "assets/emoji-eggplant.png",
     alt: "Eggplant emoji",
     id: "eggplants",
-  },
-  // {
-  //   img: "assets/emoji-fish.png",
-  //   alt: "Blowfish emoji",
-  //   id: "fish",
-  // },
-  // {
-  //   img: "assets/emoji-island.png",
-  //   alt: "Island emoji",
-  //   id: "tropical",
-  // },
-  // {
-  //   img: "assets/emoji-building.png",
-  //   alt: "Building emoji",
-  //   id: "architecture",
-  // },
-  // {
-  //   img: "assets/emoji-pride.png",
-  //   alt: "Pride flag emoji",
-  //   id: "Pride",
-  // },
-  // {
-  //   img: "assets/emoji-red.png",
-  //   alt: "Red Apple emoji",
-  //   id: "red",
-  // },
-  // {
-  //   img: "assets/emoji-green.png",
-  //   alt: "Green Apple emoji",
-  //   id: "green",
-  // },
-  // {
-  //   img: "assets/emoji-yellow.png",
-  //   alt: "Banana emoji",
-  //   id: "yellow",
-  // },
+  }
 ];
 
-//vanilla js
+// dark mode function
 // concept referenced from https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8
+imageApp.darkMode = function () {
+  const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
+  const currentTheme = localStorage.getItem("theme");
 
-const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
-const currentTheme = localStorage.getItem("theme");
+  if (currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme);
 
-if (currentTheme) {
-  document.documentElement.setAttribute("data-theme", currentTheme);
+    if (currentTheme === "dark") {
+      toggleSwitch.checked = true;
+    }
+  };
 
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true;
-  }
-}
+  // checks if the slider is toggled
+  imageApp.switchTheme = function (event) {
+    if (event.target.checked) {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark");
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light");
-  }
-}
-
-toggleSwitch.addEventListener("change", switchTheme, false);
+  toggleSwitch.addEventListener("change", imageApp.switchTheme, false);
+};
 
 // passing the array emojiArray to emArray
 imageApp.displayEmoji = function (emArray) {
@@ -229,33 +211,33 @@ imageApp.getImage = function () {
     .then(function (response) {
       imageApp.displayImage(response);
     }) // if api fails, show an error
-    .fail(function (error) {
-      alert(
-        "You have reached your request limit for the hour! Try again later :)"
-      );
-      console.log(error);
+    .fail(function () {
+      // sweet alert function
+      swal("You have reached your request limit for the hour! Try again later. :)");
     });
 };
 
-// passing in from the "response.photos" to imageArray
+// passing in from the "response" to imageArray
 imageApp.displayImage = function (imageArray) {
   imageArray.forEach(function (image) {
+
     const photo = $("<img>")
-      .addClass("gallery-img")
-      .attr("src", image.urls.regular)
-      .attr("alt", image.alt_description);
+        .addClass("gallery-img")
+        .attr("src", image.urls.regular)
+        .attr("alt", image.alt_description);
+      
+    const downloadPhoto = $(`<a href="${image.urls.full}" target="_blank" tabindex="1"></a>`)
+        .addClass("download")
+        .text("View Full Image");
 
-    const downloadPhoto = $(`<a href="${image.urls.full}" target="_blank"></a>`)
-      .addClass("download")
-      .text("View Full Image");
-
-    const photographer = $("<p>").text(`Photographer: ${image.user.name}`);
-
-    //overlay on top of image displaying info & download
+    const photographer = $("<p>")
+      .text(`Photographer: ${image.user.name}`)
+      
+    // overlay on top of image displaying info & download
     const overlay = $("<div>")
-      .addClass("overlay")
-      .append(photographer, downloadPhoto);
-
+        .addClass("overlay")
+        .append(photographer, downloadPhoto);
+    
     const imagePiece = $("<div>").addClass("piece").append(photo, overlay);
 
     $(".gallery-grid").append(imagePiece);
@@ -268,6 +250,7 @@ imageApp.init = function () {
   imageApp.displayEmoji(imageApp.emojiArray);
   imageApp.chooseEmoji();
   imageApp.chooseOrientation();
+  imageApp.darkMode();
 };
 
 $(function () {

@@ -5,6 +5,10 @@
 }
 
 @media (max-width: 715px) {
+    .introduction p {
+        margin-top: 30px;
+    }
+
     .orientation-picker {
         flex-direction: column;
         align-items: center;
@@ -13,8 +17,15 @@
             margin: 5px auto;
         }
     }
-}
 
+    .gallery-container {
+        margin-bottom: 20%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
 @media (max-width: 525px) {
     .introduction {
@@ -43,6 +54,4 @@
             width: 70%;
         }
     }
-
-
 }
