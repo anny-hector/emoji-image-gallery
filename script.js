@@ -212,11 +212,12 @@ imageApp.getImage = function () {
       imageApp.displayImage(response);
     }) // if api fails, show an error
     .fail(function () {
+      // sweet alert function
       swal("You have reached your request limit for the hour! Try again later. :)");
     });
 };
 
-// passing in from the "response.photos" to imageArray
+// passing in from the "response" to imageArray
 imageApp.displayImage = function (imageArray) {
   imageArray.forEach(function (image) {
 
