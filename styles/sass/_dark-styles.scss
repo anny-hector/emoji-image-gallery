@@ -1,0 +1,16 @@
+html {
+    --bg-color: #fcfaeb;
+    --font-color: #383435;
+    --emoji-color: #383435;
+    --subheading-color: #383435;
+    --border-color: #383435;
+}
+  
+html[data-theme="dark"] {
+  --bg-color: #383435;
+  --font-color: #fcfaeb;
+  --hover-color: #383435;
+  --emoji-color: #fcfaeb;
+  --subheading-color: #fcfaeb;
+  --border-color: #fcfaeb;
+}
